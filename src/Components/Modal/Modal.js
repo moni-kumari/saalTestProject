@@ -25,15 +25,16 @@ const Modal = (props) => {
             </span>
             <ul>
               <li>
-                <b>Gender: {filteredData[0].gender} </b>
+                <b>Gender:</b> {filteredData[0].gender}
+              </li>
+              <li>
+                <b>Email:</b>
+                {filteredData[0].email}
+              </li>
 
-                <li>
-                  <b>Email:{filteredData[0].email} </b>
-                </li>
-
-                <li>
-                  <b>Phone: {filteredData[0].phone}</b>
-                </li>
+              <li>
+                <b>Phone: </b>
+                {filteredData[0].phone}
               </li>
             </ul>
           </div>

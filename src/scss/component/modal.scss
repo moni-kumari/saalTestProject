@@ -1,0 +1,28 @@
+@import "../base/base";
+
+.outer-container {
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.2);
+  left: 0px;
+  top: 0px;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  .inner-container {
+    background: $whiteColor;
+    width: $halfWidth;
+    padding: $_20;
+    position: relative;
+  }
+  .close-btn {
+    position: absolute;
+    right: -13px;
+    top: -23px;
+    background: gray;
+    padding: 15px 18px;
+    border-radius: 50%;
+    color: #fff;
+  }
+}

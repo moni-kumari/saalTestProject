@@ -1,0 +1,17 @@
+@import "../variables/variables";
+@import "../variables/mixins";
+
+body {
+  padding: 0;
+  margin: 0px;
+}
+* {
+  box-sizing: border-box;
+}
+@include mobile {
+  body {
+    .main_container {
+      padding: 10px;
+    }
+  }
+}

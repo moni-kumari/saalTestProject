@@ -1,0 +1,82 @@
+@import "../base/base";
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: 0.3s;
+  width: calc(25% - 20px);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: $_10;
+  .container {
+    .name-section {
+      border: none;
+      color: $whiteColor;
+      font-size: $_18;
+      text-align: center;
+      width: $fullWidth;
+      padding: $_10;
+      background: $grColor;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    ul {
+      list-style: none;
+      padding: $zeroSize;
+      margin: $zeroSize;
+      li {
+        font-size: $_15;
+        padding: $_10 $zeroSize;
+        display: flex;
+        color: $listTextColor;
+        line-height: 20px;
+        b {
+          margin-right: $_10;
+          color: $boldColor;
+          width: 30%;
+        }
+      }
+    }
+  }
+  img {
+    max-width: $fullWidth;
+    width: $fullWidth !important;
+  }
+}
+
+.lightbox {
+  /* Default to hidden */
+  display: none;
+
+  /* Overlay entire screen */
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* A bit of padding around image */
+  padding: 1em;
+
+  /* Translucent background */
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Unhide the lightbox when it's the target */
+.lightbox:target {
+  display: block;
+}
+
+.lightbox span {
+  /* Full width and height */
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  /* Size and position background image */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}

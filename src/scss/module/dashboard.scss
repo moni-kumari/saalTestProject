@@ -1,0 +1,13 @@
+@import "../base/base";
+
+.main-container {
+  max-width: 1200px;
+  display: block;
+  margin: 0px auto;
+  padding: 0px;
+  .card-section {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}

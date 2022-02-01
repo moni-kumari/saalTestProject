@@ -1,0 +1,10 @@
+@import "../base/base";
+
+.header {
+  color: $headingColour;
+  min-height: 80px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: $fullWidth;
+  font-size: $first_heading;
+}

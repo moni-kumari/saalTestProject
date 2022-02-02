@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../../scss/component/card.scss";
 import Modal from "../Modal/Modal";
 import LightBox from "../../Components/LightBox/LightBox";
 import Pagination from "../Pagination/Pagination";
 import CardList from "./CardList";
+import { AppContext } from "../../Module/Dashboard";
 
 const Card = (props) => {
-  const { data, query, setPage } = props;
+  const { query, setPage, page } = props;
   const [userId, setUserId] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [openLightBox, setOpenLightBox] = useState(false);
+
+  const data = useContext(AppContext);
 
   const showModal = () => {
     setModalOpen(true);
@@ -52,7 +55,7 @@ const Card = (props) => {
             );
           })}
 
-      <Pagination setPage={setPage} data={data} />
+      <Pagination setPage={setPage} page={page} />
       {modalOpen && <Modal closeModal={closeModal} userId={userId} />}
       {openLightBox && <LightBox closeModal={closeModal} userId={userId} />}
     </>

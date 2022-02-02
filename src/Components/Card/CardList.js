@@ -37,13 +37,17 @@ const CardList = (props) => {
             <FaUserAlt />${data.login.username}
           </li>
           <li>
-            <GrMail /> {data.email}
+            <a href={`mailto:${data.email}`}>
+              <GrMail /> {data.email}
+            </a>
           </li>
           <li>
             <FaCalendar /> {dob}
           </li>
           <li>
-            <FaPhoneAlt /> {phone}
+            <a href={`tel:${phone}`}>
+              <FaPhoneAlt /> {phone}
+            </a>
           </li>
           <li>
             <HiLocationMarker />

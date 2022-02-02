@@ -10,6 +10,7 @@ function Dashboard() {
   const [data, setdata] = useState();
   const [query, setQuery] = useState("");
   const [page, setPage] = useState(1);
+  const [disableSearchIcon, setDisableSearchIcon] = useState();
 
   useEffect(() => {
     const url = `${BASE_URL}?page=${page}&results=10&seed=abc`;
@@ -28,14 +29,15 @@ function Dashboard() {
     } else {
       setQuery(event);
     }
+    setDisableSearchIcon(event);
   };
   return (
     <AppContext.Provider value={data}>
       <Header />
       <div className="main-container">
-        <Search searchData={searchData} />
+        <Search searchData={searchData} disableSearchIcon={disableSearchIcon} />
         <div className="card-section">
-          <Card data={data} query={query} setPage={setPage} />
+          <Card query={query} setPage={setPage} page={page} />
         </div>
       </div>
     </AppContext.Provider>

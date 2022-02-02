@@ -5,14 +5,20 @@
   width: $fullWidth;
   padding: $_10;
   display: inline-block;
+  position: relative;
   input {
     height: 38px;
     padding: $_20;
     width: $fullWidth;
-    margin-right: $_10;
     border-radius: $_5;
     border: 1px solid #ccc;
-    float: right;
+    margin: $zeroSize;
+  }
+  svg {
+    position: absolute;
+    right: $_30;
+    top: 23px;
+    color: $lightGrayColor;
   }
 }
 @include mobile {

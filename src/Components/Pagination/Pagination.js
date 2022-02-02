@@ -2,7 +2,7 @@ import React from "react";
 import "../../scss/component/pagination.scss";
 
 const Pagination = (props) => {
-  const { setPage, data } = props;
+  const { setPage, page } = props;
   const goPrevious = () => {
     setPage((pre) => {
       if (pre <= 1) {
@@ -16,10 +16,13 @@ const Pagination = (props) => {
       return pre + 1;
     });
   };
+
   return (
     <div className="pagination">
       <ul>
-        <li onClick={goPrevious}>&laquo; Previous </li>
+        <li className={page <= 1 ? "disabled" : ""} onClick={goPrevious}>
+          &laquo; Previous{" "}
+        </li>
         <li onClick={goNext}> Next &raquo;</li>
       </ul>
     </div>

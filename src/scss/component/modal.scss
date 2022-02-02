@@ -16,8 +16,8 @@
     //padding: $_20;
     h3 {
       background: $headingColour;
-      margin: 0px;
-      padding: 20px;
+      margin: $zeroSize;
+      padding: $_20;
       text-align: center;
       color: white;
     }
@@ -27,11 +27,14 @@
     }
     .user-picture {
       text-align: center;
-      margin-top: 10px;
-      border-radius: 100%;
+      margin-top: $_10;
+      border-radius: $fullWidth;
       overflow: hidden;
       width: 130px;
       height: 130px;
+      img {
+        width: $fullWidth;
+      }
     }
     ul {
       list-style: none;
@@ -44,6 +47,13 @@
           margin-right: $_5;
           float: left;
           margin-top: 2px;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+          &:hover {
+            text-decoration: underline;
+          }
         }
       }
     }
@@ -78,5 +88,9 @@
     li {
       font-size: $_15 !important;
     }
+  }
+  .user-picture {
+    width: 100px !important;
+    height: 100px !important;
   }
 }

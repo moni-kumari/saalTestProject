@@ -36,13 +36,17 @@ const Modal = (props) => {
                 {filteredData[0].gender}
               </li>
               <li>
-                <GrMail />
-                {filteredData[0].email}
+                <a href={`mailto ${filteredData[0].email}`}>
+                  <GrMail />
+                  {filteredData[0].email}
+                </a>
               </li>
 
               <li>
-                <FaPhoneAlt />
-                {phone}
+                <a href={`tel:${phone}`}>
+                  <FaPhoneAlt />
+                  {phone}
+                </a>
               </li>
             </ul>
           </div>

@@ -4,79 +4,73 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 20px;
   transition: 0.3s;
-  width: calc(25% - 20px);
+  width: calc(33% - 20px);
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: $_5;
   margin: $_10;
-  .container {
+  .img-box {
+    cursor: pointer;
+    overflow: hidden;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #ccc;
+  }
+  .header-section {
+    display: flex;
+    margin-bottom: 10px;
     .name-section {
       border: none;
-      color: $whiteColor;
-      font-size: $_18;
-      text-align: center;
+      color: #1a1a1a;
+      font-size: 19px;
       width: $fullWidth;
-      padding: $_10;
-      background: $grColor;
       cursor: pointer;
       font-weight: bold;
-      border-radius: 5px;
+      text-align: left;
+      background: none;
+      padding: $zeroSize;
+      margin-left: $_15;
     }
+  }
+  .container {
     ul {
       list-style: none;
       padding: $zeroSize;
       margin: $zeroSize;
       li {
         font-size: $_15;
-        padding: $_10 $zeroSize;
+        padding-top: $_10;
         display: flex;
-        color: $listTextColor;
-        line-height: 20px;
-        b {
+        color: #5e5c5c;
+        line-height: $_20;
+
+        svg {
           margin-right: $_10;
           color: $boldColor;
-          width: 30%;
+          margin-top: 2px;
         }
       }
     }
   }
-  img {
-    max-width: $fullWidth;
-    width: $fullWidth !important;
+  // img {
+  //   max-width: $fullWidth;
+  //   width: $fullWidth !important;
+  // }
+}
+
+@include tablet {
+  .main-container {
+    width: $fullWidth;
+  }
+  .card {
+    width: calc(50% - 20px);
   }
 }
 
-.lightbox {
-  /* Default to hidden */
-  display: none;
-
-  /* Overlay entire screen */
-  position: fixed;
-  z-index: 999;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  /* A bit of padding around image */
-  padding: 1em;
-
-  /* Translucent background */
-  background: rgba(0, 0, 0, 0.8);
-}
-
-/* Unhide the lightbox when it's the target */
-.lightbox:target {
-  display: block;
-}
-
-.lightbox span {
-  /* Full width and height */
-  display: block;
-  width: 100%;
-  height: 100%;
-
-  /* Size and position background image */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+@include mobile {
+  .inner-container {
+    width: 95% !important;
+  }
+  .card {
+    width: $fullWidth;
+  }
 }

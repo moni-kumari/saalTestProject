@@ -3,14 +3,9 @@
     @content;
   }
 }
-@mixin mobile_landscape {
-  @media (min-width: $mobile_landscape_min) and (max-width: $mobile_landscape_max) {
-    @content;
-  }
-}
 
 @mixin tablet {
-  @media (min-width: $tablet_min) and (max-width: $tablet_max) {
+  @media (min-width: $mobile_landscape_min) and (max-width: $tablet_max) {
     @content;
   }
 }

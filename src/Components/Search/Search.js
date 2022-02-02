@@ -5,14 +5,10 @@ const Search = (props) => {
   const { searchData } = props;
   return (
     <div className="search-field">
-      <form>
-        <div>
-          <input
-            placeholder="Search by username"
-            onChange={(event) => searchData(event.target.value)}
-          />
-        </div>
-      </form>
+      <input
+        placeholder="Search by username"
+        onChange={(event) => searchData(event.target.value)}
+      />
     </div>
   );
 };

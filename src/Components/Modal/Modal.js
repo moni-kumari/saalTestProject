@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import "../../scss/component/modal.scss";
 import { AppContext } from "../../Module/Dashboard";
+import { FaTransgender, FaPhoneAlt } from "react-icons/fa";
+import { GrMail } from "react-icons/gr";
 
 const Modal = (props) => {
   const { closeModal, userId } = props;
@@ -12,10 +14,12 @@ const Modal = (props) => {
       return data;
     }
   });
+  let phone = filteredData[0].phone.split("-").join("");
   return (
     <>
       <div className="outer-container">
         <div className="inner-container">
+          <h3>Employee Details</h3>
           <div className="modal-box">
             <span
               className="close-btn"
@@ -23,18 +27,22 @@ const Modal = (props) => {
             >
               X
             </span>
+            <div className="emp-picture">
+              <img src={filteredData[0].picture.large} alt="Avatar" />
+            </div>
             <ul>
               <li>
-                <b>Gender:</b> {filteredData[0].gender}
+                <FaTransgender />
+                {filteredData[0].gender}
               </li>
               <li>
-                <b>Email:</b>
+                <GrMail />
                 {filteredData[0].email}
               </li>
 
               <li>
-                <b>Phone: </b>
-                {filteredData[0].phone}
+                <FaPhoneAlt />
+                {phone}
               </li>
             </ul>
           </div>

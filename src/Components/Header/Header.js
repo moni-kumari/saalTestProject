@@ -1,11 +1,11 @@
 import React from "react";
 import "../../scss/component/header.scss";
 
-function Header() {
+const Header = () => {
   return (
     <div className="header">
-      <h1>List of Employes</h1>
+      <h2>List of Employes</h2>
     </div>
   );
-}
+};
 export default Header;

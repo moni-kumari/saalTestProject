@@ -1,112 +1,61 @@
 import React, { useState } from "react";
 import "../../scss/component/card.scss";
 import Modal from "../Modal/Modal";
+import LightBox from "../../Components/LightBox/LightBox";
+import Pagination from "../Pagination/Pagination";
+import CardList from "./CardList";
 
 const Card = (props) => {
-  const { data, query } = props;
+  const { data, query, setPage } = props;
   const [userId, setUserId] = useState("");
-  const [modalOpen, serModalOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [openLightBox, setOpenLightBox] = useState(false);
 
-  const showModal = (id) => {
-    console.log(userId);
-    if (id == userId) {
-      serModalOpen(true);
-    }
+  const showModal = () => {
+    setModalOpen(true);
   };
-  const closeModal = (id) => {
-    if (id == userId) {
-      serModalOpen(false);
-    }
+  const closeModal = () => {
+    setModalOpen(false);
+    setOpenLightBox(false);
   };
+  const showLightBox = () => {
+    setOpenLightBox(true);
+  };
+
   return (
     <>
       {data &&
         data.results
           .filter((empList) => {
             const data = empList.login.username.toLowerCase();
-            if (query == "") {
-              return "";
+            // console.log(">>>>>>>>>>>>", empList);
+            if (query === "") {
+              return true;
             } else if (data.toLowerCase().includes(query)) {
-              return empList;
+              return true;
             }
+            return false;
           })
           .map((list, key) => {
+            let dobNew = new Date(list.dob.date);
+            let dob = Intl.DateTimeFormat(["ban", "id"]).format(dobNew);
+            let phone = list.phone.split("-").join("");
             return (
-              <>
-                <div className="card" key={key}>
-                  <div className="img-box">
-                    <img src={list.picture.large} alt="Avatar" />
-                  </div>
-                  <div className="container">
-                    <button
-                      className="name-section"
-                      onClick={() => {
-                        setUserId(list.login.username);
-                        showModal(list.login.username);
-                      }}
-                    >
-                      {` ${list.name.title} ${list.name.first}
-                      ${list.name.last}`}
-                    </button>
-                    <ul>
-                      <li>
-                        <b>Username: </b>
-                        {` ${list.login.username}`}
-                      </li>
-                      <li>
-                        <b>Dob:</b> {` ${list.dob.date}`}
-                      </li>
-                      <li>
-                        <b>Address:</b>
-                        {` ${list.location.street.number}
-                      ${list.location.street.name} ${list.location.city} ${list.location.country} ${list.location.postcode}`}
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </>
+              <CardList
+                key={key}
+                data={list}
+                dob={dob}
+                showModal={showModal}
+                showLightBox={showLightBox}
+                setUserId={setUserId}
+                phone={phone}
+              />
             );
           })}
-      {!query &&
-        data &&
-        data.results.map((list, key) => {
-          return (
-            <>
-              <div className="card" key={key}>
-                <div className="img-box">
-                  <img src={list.picture.large} alt="Avatar" />
-                </div>
-                <div className="container">
-                  <button
-                    className="name-section"
-                    onClick={() => {
-                      setUserId(list.login.username);
-                      showModal(list.login.username);
-                    }}
-                  >
-                    {` ${list.name.title} ${list.name.first}
-                      ${list.name.last}`}
-                  </button>
-                  <ul>
-                    <li>
-                      <b>Username: </b>
-                      {` ${list.login.username}`}
-                    </li>
-                    <li>
-                      <b>Dob:</b> {` ${list.dob.date}`}
-                    </li>
-                    <li>
-                      <b>Address:</b>
-                      {` ${list.location.street.number}
-                      ${list.location.street.name} ${list.location.city} ${list.location.country} ${list.location.postcode}`}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </>
-          );
-        })}
+
+      <Pagination setPage={setPage} data={data} />
       {modalOpen && <Modal closeModal={closeModal} userId={userId} />}
+      {openLightBox && <LightBox closeModal={closeModal} userId={userId} />}
     </>
   );
 };

@@ -11,3 +11,8 @@
     flex-wrap: wrap;
   }
 }
+@mixin tablet_landscape {
+  .main-container {
+    width: $fullWidth;
+  }
+}

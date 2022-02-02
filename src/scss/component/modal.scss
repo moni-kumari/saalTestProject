@@ -1,7 +1,7 @@
 @import "../base/base";
 
 .outer-container {
-  width: 100%;
+  width: $fullWidth;
   height: 100vh;
   background: rgba(0, 0, 0, 0.8);
   left: 0px;
@@ -12,30 +12,71 @@
   display: flex;
   .inner-container {
     background: $whiteColor;
-    width: $halfWidth;
-    padding: $_20;
-    position: relative;
-    ul {
-      list-style: none;
+    width: 600px;
+    //padding: $_20;
+    h3 {
+      background: $headingColour;
       margin: 0px;
       padding: 20px;
+      text-align: center;
+      color: white;
+    }
+    .modal-box {
+      display: flex;
+      padding: 20px;
+    }
+    .emp-picture {
+      text-align: center;
+      margin-top: 10px;
+      border-radius: 100%;
+      overflow: hidden;
+      width: 130px;
+      height: 130px;
+    }
+    ul {
+      list-style: none;
+      margin: $zeroSize;
+      padding: $_20;
       li {
-        padding: 10px;
-        b {
-          width: 100px;
-          display: inline-block;
+        padding: $_10;
+        font-size: 18px;
+        svg {
+          margin-right: $_5;
+          float: left;
+          margin-top: 2px;
         }
       }
     }
   }
+  .light-container {
+    padding: $_10;
+    background: $whiteColor;
+  }
   .close-btn {
     position: absolute;
-    right: -13px;
-    top: -23px;
+    right: 20px;
+    top: 20px;
     background: gray;
     padding: 15px 18px;
     border-radius: 50%;
     color: #fff;
     cursor: pointer;
+  }
+}
+@include tablet {
+  .inner-container {
+    width: 80% !important;
+  }
+}
+
+@include mobile {
+  .inner-container {
+    width: 95% !important;
+  }
+  .modal-box {
+    padding: $_5 !important;
+    li {
+      font-size: $_15 !important;
+    }
   }
 }

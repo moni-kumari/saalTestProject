@@ -1,15 +1,22 @@
 @import "../base/base";
 
 .search-field {
-  margin-bottom: 20px;
-  width: 100%;
-  padding: 10px;
+  margin-bottom: $_10;
+  width: $fullWidth;
+  padding: $_10;
+  display: inline-block;
   input {
     height: 38px;
-    padding: 20px;
+    padding: $_20;
     width: $fullWidth;
-    margin-right: 10px;
-    border-radius: 5px;
+    margin-right: $_10;
+    border-radius: $_5;
     border: 1px solid #ccc;
+    float: right;
+  }
+}
+@include mobile {
+  .search-field input {
+    float: initial;
   }
 }

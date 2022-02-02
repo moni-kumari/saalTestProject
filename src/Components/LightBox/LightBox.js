@@ -4,10 +4,10 @@ import { AppContext } from "../../Module/Dashboard";
 
 const SlideBox = (props) => {
   const { closeModal, userId } = props;
-  const empDetail = useContext(AppContext);
+  const userDetail = useContext(AppContext);
   let filteredData = {};
 
-  filteredData = empDetail.results.filter((data) => {
+  filteredData = userDetail.results.filter((data) => {
     if (data.login.username == userId) {
       return data;
     }

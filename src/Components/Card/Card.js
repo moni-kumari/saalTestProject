@@ -26,9 +26,8 @@ const Card = (props) => {
     <>
       {data &&
         data.results
-          .filter((empList) => {
-            const data = empList.login.username.toLowerCase();
-            // console.log(">>>>>>>>>>>>", empList);
+          .filter((userList) => {
+            const data = userList.login.username.toLowerCase();
             if (query === "") {
               return true;
             } else if (data.toLowerCase().includes(query)) {

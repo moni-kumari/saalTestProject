@@ -6,10 +6,10 @@ import { GrMail } from "react-icons/gr";
 
 const Modal = (props) => {
   const { closeModal, userId } = props;
-  const empDetail = useContext(AppContext);
+  const userDetail = useContext(AppContext);
   let filteredData = {};
 
-  filteredData = empDetail.results.filter((data) => {
+  filteredData = userDetail.results.filter((data) => {
     if (data.login.username == userId) {
       return data;
     }
@@ -19,7 +19,7 @@ const Modal = (props) => {
     <>
       <div className="outer-container">
         <div className="inner-container">
-          <h3>Employee Details</h3>
+          <h3>User Detail</h3>
           <div className="modal-box">
             <span
               className="close-btn"
@@ -27,7 +27,7 @@ const Modal = (props) => {
             >
               X
             </span>
-            <div className="emp-picture">
+            <div className="user-picture">
               <img src={filteredData[0].picture.large} alt="Avatar" />
             </div>
             <ul>

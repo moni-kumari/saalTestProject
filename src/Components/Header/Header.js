@@ -4,7 +4,7 @@ import "../../scss/component/header.scss";
 const Header = () => {
   return (
     <div className="header">
-      <h2>List of Employes</h2>
+      <h2>List of Users</h2>
     </div>
   );
 };

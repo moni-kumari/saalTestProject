@@ -4,7 +4,7 @@ import Modal from "../Modal/Modal";
 import LightBox from "../../Components/LightBox/LightBox";
 import Pagination from "../Pagination/Pagination";
 import CardList from "./CardList";
-import { AppContext } from "../../Module/Dashboard";
+import { AppContext } from "../../App";
 
 const Card = (props) => {
   const { query, setPage, page } = props;
@@ -24,6 +24,8 @@ const Card = (props) => {
   const showLightBox = () => {
     setOpenLightBox(true);
   };
+
+  console.log(data);
 
   return (
     <>

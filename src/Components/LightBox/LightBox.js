@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "../../scss/component/modal.scss";
-import { AppContext } from "../../Module/Dashboard";
+import { AppContext } from "../../App";
 
 const SlideBox = (props) => {
   const { closeModal, userId } = props;
